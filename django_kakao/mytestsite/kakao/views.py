@@ -12,14 +12,14 @@ def index(request):
 
 def kakaoLoginLogic(request):
     _restApiKey = '' # 입력필요
-    _redirectUrl = 'http://127.0.0.1/kakaoLoginLogicRedirect'
+    _redirectUrl = 'http://127.0.0.1:8000/kakaoLoginLogicRedirect'
     _url = f'https://kauth.kakao.com/oauth/authorize?client_id={_restApiKey}&redirect_uri={_redirectUrl}&response_type=code'
     return redirect(_url)
 
 def kakaoLoginLogicRedirect(request):
     _qs = request.GET['code']
     _restApiKey = '' # 입력필요
-    _redirect_uri = 'http://127.0.0.1/kakaoLoginLogicRedirect'
+    _redirect_uri = 'http://127.0.0.1:8000/kakaoLoginLogicRedirect'
     _url = f'https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={_restApiKey}&redirect_uri={_redirect_uri}&code={_qs}'
     _res = requests.post(_url)
     _result = _res.json()
@@ -33,6 +33,10 @@ def kakaoLogout(request):
     _header = {
       'Authorization': f'bearer {_token}'
     }
+    # _url = 'https://kapi.kakao.com/v1/user/unlink'
+    # _header = {
+    #   'Authorization': f'bearer {_token}',
+    # }
     _res = requests.post(_url, headers=_header)
     _result = _res.json()
     if _result.get('id'):
