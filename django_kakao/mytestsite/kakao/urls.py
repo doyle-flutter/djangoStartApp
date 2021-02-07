@@ -11,4 +11,7 @@ urlpatterns = [
     path('paySuccess/', views.paySuccess),
     path('payFail/', views.payFail),
     path('payCancel/', views.payCancel),
+    # FLutter & Django
+    path('kakaoPayLogic2/', views.kakaoPayLogic2),
+    path('paySuccess2/', views.paySuccess2),
 ]
