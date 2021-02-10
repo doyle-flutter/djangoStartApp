@@ -2,7 +2,7 @@
 
 ### 설치 및 실행
 - 설치 및 실행 테스트 [Video](https://youtu.be/WTnRqnABiVg)
-- DynamicPath & QueryString : Code...
+- DynamicPath & QueryString : [Code](https://github.com/doyle-flutter/djangoStartApp/tree/main/django_kakao/mytestsite/mytestsite)
 
 ### 예제
 
