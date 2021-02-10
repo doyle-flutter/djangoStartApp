@@ -141,3 +141,17 @@ def payFail(request):
     return render(request, 'payFail.html')
 def payCancel(request):
     return render(request, 'payCancel.html')
+
+def methodsCheck(request, id):
+    if(request.method == 'GET'):
+        print(f"GET QS : {request.GET.get('data', '')}")
+        print(f"GET Dynamic Path : {id}")
+    
+    # PostMan으로 Localhost 테스트를 위해 CSRF 해제
+    # project/settings.py 파일에서 
+    # MIDDLEWARE -> 'django.middleware.csrf.CsrfViewMiddleware' 주석 처리
+    elif(request.method == 'POST'):
+        print(f"POST QS : {request.GET.get('data', '')}")
+        print(f"POST Dynamic Path : {id}")
+        return HttpResponse("POST Request.", content_type="text/plain")
+    return render(request, 'methodGet.html')

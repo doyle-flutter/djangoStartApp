@@ -14,4 +14,6 @@ urlpatterns = [
     # FLutter & Django
     path('kakaoPayLogic2/', views.kakaoPayLogic2),
     path('paySuccess2/', views.paySuccess2),
+    # GET | POST - Methods / Params | QueryString
+    path('methodsCheck/<int:id>', views.methodsCheck),
 ]
