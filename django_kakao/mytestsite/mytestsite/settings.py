@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'kakao.apps.KakaoConfig'
+    'kakao.apps.KakaoConfig',
 ]
 
 MIDDLEWARE = [

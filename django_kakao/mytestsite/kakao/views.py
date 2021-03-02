@@ -3,7 +3,7 @@ import requests
 import json
 from django.template import loader
 from django.http import HttpResponse
-# Create your views here.
+
 
 def index(request):
     _context = {'check':False}
@@ -90,7 +90,13 @@ def paySuccess(request):
     if _result.get('msg'):
         return redirect('/payFail')
     else:
-        return render(request, 'paySuccess.html')
+        # * 사용하는 프레임워크별 코드를 수정하여 배포하는 방법도 있지만
+        #   Req Header를 통해 분기하는 것을 추천
+        # - Django 등 적용 시
+        # return render(request, 'paySuccess.html')
+        print(_result)
+        # - React 적용 시
+        return redirect('http://localhost:3000')
 
 # Flutter & Djnago
 def kakaoPayLogic2(request):
