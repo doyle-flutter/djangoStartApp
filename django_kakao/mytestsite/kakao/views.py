@@ -2,8 +2,42 @@ from django.shortcuts import render, redirect
 import requests
 import json
 from django.template import loader
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
+
+def test(request):
+    _data = {
+        "data": [
+            {
+                "title": "트로트",
+                "datas": [
+                    {'title': '노래제목1', 'name': '가수', 'des': '가사'},
+                    {'title': '노래제목1', 'name': '가수', 'des': '가사'},
+                    {'title': '노래제목1', 'name': '가수', 'des': '가사'},
+                    {'title': '노래제목1', 'name': '가수', 'des': '가사'},
+                ]
+            },
+            {
+                "title": "댄스",
+                "datas": [
+                    {'title': '노래제목2', 'name': '가수', 'des': '가사'},
+                    {'title': '노래제목2', 'name': '가수', 'des': '가사'},
+                    {'title': '노래제목2', 'name': '가수', 'des': '가사'},
+                    {'title': '노래제목2', 'name': '가수', 'des': '가사'},
+                ]
+            },
+            {
+                "title": "힙합",
+                "datas": [
+                    {'title': '노래제목3', 'name': '가수', 'des': '가사'},
+                    {'title': '노래제목3', 'name': '가수', 'des': '가사'},
+                    {'title': '노래제목3', 'name': '가수', 'des': '가사'},
+                    {'title': '노래제목3', 'name': '가수', 'des': '가사'}
+                ]
+            }
+        ]
+    }
+    return JsonResponse(_data)
 
 def index(request):
     _context = {'check':False}
